@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_budget_planner_app/data/my_datas.dart';
+import 'package:flutter_budget_planner_app/model/transaction_model.dart';
+import 'package:flutter_budget_planner_app/screens/home/widgets/expense_widget.dart';
+import 'package:flutter_budget_planner_app/screens/home/widgets/income_widget.dart';
 import 'package:flutter_budget_planner_app/screens/home/widgets/my_dotted_border.dart';
 import 'package:flutter_budget_planner_app/utils/app_color.dart';
 
@@ -171,7 +175,7 @@ class _HomePageState extends State<HomePage> {
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(40)),
                                   child: Image.asset(
-                                    "assets/icons/arrow-bottom.png",
+                                    "assets/icons/arrow-top.png",
                                     width: 20,
                                     height: 20,
                                   ),
@@ -210,24 +214,40 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyle(fontSize: 22),
                 ),
                 const SizedBox(height: 20),
-               /*  CustomDottedBorderContainer(
+                /*  CustomDottedBorderContainer(
                   iconColor: AppColor.greenColor,
                   text:
                       "Bu dönem için herhangi bir geliriniz yok. Bir tane eklemek için dokunun.",
                   onTap: () {},
                 ), */
-                Container(),
+                IncomeWidget(
+                  incomeData: MyDatas.incomeDatas[0],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                IncomeWidget(incomeData: MyDatas.incomeDatas[1]),
                 const SizedBox(height: 20),
                 const Text(
                   "Giderler",
                   style: TextStyle(fontSize: 22),
                 ),
                 const SizedBox(height: 20),
-                CustomDottedBorderContainer(
+                /*         CustomDottedBorderContainer(
                   iconColor: AppColor.redColor,
                   text:
                       "Bu dönem için herhangi bir gideriniz yok. Bir tane eklemek için dokunun.",
                   onTap: () {},
+                ), */
+
+                ExpenseWidget(
+                  expenseData: MyDatas.expenseDatas[0],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                ExpenseWidget(
+                  expenseData: MyDatas.expenseDatas[1],
                 ),
               ],
             ),
