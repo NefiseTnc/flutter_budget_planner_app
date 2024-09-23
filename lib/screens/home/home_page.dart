@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_budget_planner_app/data/my_datas.dart';
-import 'package:flutter_budget_planner_app/model/transaction_model.dart';
 import 'package:flutter_budget_planner_app/screens/home/widgets/expense_widget.dart';
 import 'package:flutter_budget_planner_app/screens/home/widgets/income_widget.dart';
-import 'package:flutter_budget_planner_app/screens/home/widgets/my_dotted_border.dart';
+import 'package:flutter_budget_planner_app/screens/transaction/new-transaction/new-transaction-page.dart';
 import 'package:flutter_budget_planner_app/utils/app_color.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,6 +17,18 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const NewTransaction()));
+        },
+        backgroundColor: AppColor.pinkColor,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
